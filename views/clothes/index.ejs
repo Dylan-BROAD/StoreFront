@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+<body>
+    <div class="grid-container">
+        <% clothes.forEach(function(c) { %>
+        <div class="grid-item">
+            <p><%= c.name %></p>
+            <img src="<%= c.image %>" alt="<%= c.name %>">
+            <a href>More Info</a>
+        </div>
+        <% }); %>
+    </div>
+</body>
+</html>

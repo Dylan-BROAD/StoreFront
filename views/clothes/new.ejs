@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<body class="home">
+  <div class="content">
+    <h1><%= title %></h1>
+    <p>Fill in the fields below to add new tight THREADS</p>
+    <form id="new-form" action="/clothes" method="POST">
+      <label>Name:</label>
+      <input type="text" name="name" required />
+
+      <label>Description:</label>
+      <input type="text" name="description" required />
+
+      <label>Price:</label>
+      <input type="number" name="price" required />
+
+      <label>Image URL:</label>
+      <input type="text" name="image" required />
+
+      <input type="submit" value="Add THREADS" />
+    </form>
+  </div>
+</body>
+</html>
