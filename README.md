@@ -10,7 +10,7 @@ This website will be designed with the user stories of;
 - Navigation between pages
 - The ability to create, read, update and delete prodcuts on the webpage
 - Ability to edit each individual product
-- Ability to "Buy" product
+- Ability to add product to a cart
 
 # Tech used
 
