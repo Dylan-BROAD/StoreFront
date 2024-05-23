@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<body class="home">
+  <div class="content">
+    <h1><%= title %></h1>
+    <p>Fill in the fields below to edit this THREAD</p>
+    <form id="edit-form" action="/clothes/<%= clothes._id %>?_method=PUT" method="POST">
+      <label>Name:</label>
+      <input type="text" name="name"  />
+
+      <label>Description:</label>
+      <input type="text" name="desc"  />
+
+      <label>Price:</label>
+      <input type="number" name="price"  />
+
+      <label>Image URL:</label>
+      <input type="text" name="image"  />
+
+      <label>Quantity:</label>
+      <input type="number" name="qty"  min="1"/>
+
+      <input type="submit" value="Edit THREADS" />
+    </form>
+  </div>
+</body>
+</html>
+
+<%- include('../partials/footer') %>

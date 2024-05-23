@@ -9,16 +9,21 @@
       <input type="text" name="name" required />
 
       <label>Description:</label>
-      <input type="text" name="description" required />
+      <input type="text" name="desc" required />
 
       <label>Price:</label>
-      <input type="number" name="price" required />
+      <input type="number" name="price" required min="1"/>
 
       <label>Image URL:</label>
       <input type="text" name="image" required />
+
+      <label>Quantity:</label>
+      <input type="number" name="qty" required min="1"/>
 
       <input type="submit" value="Add THREADS" />
     </form>
   </div>
 </body>
 </html>
+
+<%- include('../partials/footer') %>
