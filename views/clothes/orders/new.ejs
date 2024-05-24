@@ -1,0 +1,18 @@
+<%- include('../../partials/header') %>
+
+<h1>User's Cart</h1>
+
+<ul>
+  <% user.cart.forEach(item => { %>
+  <li>
+    <strong>Name:</strong> <%= item.name %><br />
+
+    <strong>Price:</strong> $<%= item.price %><br />
+    <strong>Description:</strong> <%= item.desc %><br />
+    <strong>Image:</strong>
+    <img src="<%= item.image %>" alt="<%= item.name %>" /><br />
+  </li>
+  <% }) %>
+</ul>
+
+<%- include('../../partials/footer') %>

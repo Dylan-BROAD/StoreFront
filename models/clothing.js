@@ -6,8 +6,6 @@ const clothesSchema = new Schema({
   image: { type: String },
   price: { type: Number, min: 1 },
   desc: { type: String },
-  qty: { type: Number, min: 0 },
-  inStock: { type: Boolean, default: false },
 });
 
 module.exports = mongoose.model("Clothes", clothesSchema);

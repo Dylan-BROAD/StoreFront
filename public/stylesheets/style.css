@@ -116,12 +116,6 @@ nav {
   opacity: 80%;
 }
 
-nav img {
-  width: 34px;
-  object-fit: contain;
-  margin-right: auto;
-}
-
 main h1:first-child {
   opacity: 100%;
 }
@@ -129,7 +123,6 @@ main h1:first-child {
 .content-home a,
 .content a,
 nav a {
-  margin: 20px;
   padding: 10px;
   border-radius: 5px;
   text-decoration: none;

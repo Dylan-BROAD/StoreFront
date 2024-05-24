@@ -10,6 +10,8 @@ module.exports = {
   create,
   edit,
   show,
+  addItem,
+  charge,
 };
 
 // index GET /products
@@ -26,14 +28,12 @@ function newClothes(req, res) {
 // Delete
 async function deleteThreads(req, res) {
   try {
-    // Find the flight by its ID and remove it
     await Clothes.findByIdAndDelete(req.params.id);
 
-    // Redirect to the flights page or any other appropriate page
     res.redirect("/clothes");
   } catch (err) {
     console.log(err);
-    // Render the error template with an error message and status
+
     res
       .status(500)
       .render("error", { message: "Failed to delete threads", error: err });
@@ -50,7 +50,6 @@ async function update(req, res) {
       image: req.body.image ? req.body.image : undefined,
       price: req.body.price ? req.body.price : undefined,
       desc: req.body.desc ? req.body.desc : undefined,
-      qty: req.body.qty ? req.body.qty : undefined,
     };
     const clothes = await Clothes.findOneAndUpdate(filter, {
       ...update,
@@ -94,4 +93,23 @@ async function show(req, res) {
   const clothes = await Clothes.findById(req.params.id);
   console.log(clothes);
   res.render("clothes/show", { title: "THREADS Detail", clothes });
+}
+
+// async function show(req, res) {
+//   console.log("Requested ID:", req.params.id); // Log the requested ID
+//   const clothes = await Clothes.findById(req.params.id);
+//   console.log("Found clothes:", clothes); // Log the found clothes
+//   res.render("clothes/show", { title: "THREADS Detail", clothes });
+// }
+
+// Add to cart
+function addItem(req, res) {
+  req.user.cart.push(req.body);
+  req.user.save(function (err) {
+    res.render("/clothes");
+  });
+}
+
+function charge(req, res) {
+  res.render("/orders", { user: req.user });
 }

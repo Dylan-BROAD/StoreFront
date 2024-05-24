@@ -15,6 +15,7 @@ require("./config/passport");
 var indexRouter = require("./routes/index");
 var clothesRouter = require("./routes/clothes");
 var usersRouter = require("./models/user");
+var cartRoutes = require("./routes/cart");
 
 var app = express();
 
@@ -24,7 +25,7 @@ app.set("view engine", "ejs");
 
 app.use(logger("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(
@@ -46,6 +47,7 @@ app.use(methodOverride("_method"));
 app.use("/", indexRouter);
 app.use("/clothes", clothesRouter);
 app.use("/user", usersRouter);
+app.use("/", cartRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

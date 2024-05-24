@@ -9,7 +9,7 @@ router.get("/", clothesCtrl.index);
 // GET /clothes/new
 router.get("/new", ensureLoggedIn, clothesCtrl.new);
 
-router.get("/:id/edit", clothesCtrl.edit);
+router.get("/:id/edit", ensureLoggedIn, clothesCtrl.edit);
 router.put("/:id", ensureLoggedIn, clothesCtrl.update);
 
 // // GET /clothes/:id (show functionality) MUST be below new route
@@ -21,4 +21,5 @@ router.post("/", ensureLoggedIn, clothesCtrl.create);
 // delete
 router.delete("/:id", ensureLoggedIn, clothesCtrl.delete);
 
+router.get("/orders", clothesCtrl.charge);
 module.exports = router;

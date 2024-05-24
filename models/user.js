@@ -1,7 +1,14 @@
 const mongoose = require("mongoose");
-const schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-const userSchema = new schema(
+const clothesSchema = new Schema({
+  name: { type: String },
+  image: { type: String },
+  price: { type: Number, min: 1 },
+  desc: { type: String },
+});
+
+const userSchema = new Schema(
   {
     name: String,
     googleId: {
@@ -10,6 +17,7 @@ const userSchema = new schema(
     },
     email: String,
     avatar: String,
+    cart: [clothesSchema],
   },
   {
     timestamps: true,
