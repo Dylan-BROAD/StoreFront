@@ -25,11 +25,9 @@ async function addItem(req, res) {
     user.cart.push(item);
 
     await user.save();
-    console.log("HELLO");
 
     res.render("clothes/orders/new", { title: "Your Cart" });
   } catch (err) {
-    console.log(err);
     res
       .status(500)
       .render("error", { message: "Failed to add item", error: err });
@@ -51,7 +49,6 @@ async function deleteItem(req, res) {
     await user.save();
     res.redirect("/cart");
   } catch (err) {
-    console.log(err);
     res
       .status(500)
       .render("error", { message: "Failed to delete item", error: err });
@@ -66,7 +63,6 @@ async function editItem(req, res) {
     await user.save();
     res.redirect("orders/new");
   } catch (err) {
-    console.log(err);
     res
       .status(500)
       .render("error", { message: "Failed to edit item", error: err });
