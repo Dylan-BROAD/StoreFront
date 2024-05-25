@@ -6,11 +6,11 @@ The purpose of this project is to create a CRUD web application and demonstrate 
 
 This website will be designed with the user stories of;
 
-- User log ins
-- Navigation between pages
-- The ability to create, read, update and delete prodcuts on the webpage
-- Ability to edit each individual product
-- Ability to add product to a cart
+- As a User I want to log in, to save my cart
+- As a user I want to navigate between pages
+- As a user I want the ability to create, read, update and delete prodcuts on the webpage
+- As a user I want the ability to edit each individual product
+- As a user I want the ability to add product to a cart
 
 # LINKS
 
