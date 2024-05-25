@@ -38,10 +38,18 @@ async function addItem(req, res) {
 
 async function deleteItem(req, res) {
   try {
-    const user = await User.findById(req.user._id);
-    user.cart.id(req.params.id).remove();
+    const userId = req.user._id;
+    const itemId = req.params.id;
+
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).render("error", { message: "User not found" });
+    }
+
+    user.cart.pull({ _id: itemId });
+
     await user.save();
-    res.redirect("orders/new");
+    res.redirect("/cart");
   } catch (err) {
     console.log(err);
     res
@@ -66,5 +74,5 @@ async function editItem(req, res) {
 }
 
 function cart(req, res) {
-  res.render("orders/new");
+  res.render("clothes/orders/new", { title: "Add THREADS", errorMsg: "" });
 }

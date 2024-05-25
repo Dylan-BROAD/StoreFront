@@ -10,31 +10,25 @@
             <li><strong>Price: $</strong> <%= clothes.price %></li>
 
             <li><strong>Description:</strong> <%= clothes.desc %></li>
-            <li>
-              <form action="/clothes/addToCart" method="POST">
-                <input type="hidden" name="itemId" value="<%= clothes._id %>" />
-                <input type="hidden" name="name" value="<%= clothes.name %>" />
-                <input
-                  type="hidden"
-                  name="price"
-                  value="<%= clothes.price %>"
-                />
 
-                <button type="submit">Add THREADS to cart</button>
-              </form>
-            </li>
             <li>
               <a href="/clothes/<%= clothes._id %>/edit">Update THREADS</a>
             </li>
-            <li>
-              <form
-                action="/clothes/<%= clothes._id %>?_method=DELETE"
-                class="delete-form"
-                method="POST"
-              >
-                <button type="submit" class="close-button">X</button>
-              </form>
-            </li>
+
+            <form
+              action="/clothes/<%= clothes._id %>?_method=DELETE"
+              class="delete-form"
+              method="POST"
+            >
+              <button type="submit" class="close-button">X</button>
+            </form>
+            <form action="/clothes/addToCart" method="POST">
+              <input type="hidden" name="itemId" value="<%= clothes._id %>" />
+              <input type="hidden" name="name" value="<%= clothes.name %>" />
+              <input type="hidden" name="price" value="<%= clothes.price %>" />
+
+              <button type="submit">Add THREADS to cart</button>
+            </form>
           </ul>
         </div>
       </div>

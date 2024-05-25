@@ -1,18 +1,41 @@
 <%- include('../../partials/header') %>
 
-<h1>User's Cart</h1>
+<div class="cart-container">
+  <div class="cart-header">
+    <h1 class="cart-title">
+      <img src="<%= user.avatar %>" alt="<%= user.avatar %>" /><%= user.name
+      %>'s Cart
+    </h1>
+    <% if (user.cart.length > 0) { %>
+    <a href="/checkout" class="checkout-button">Proceed to Checkout</a>
+    <% } %>
+  </div>
+  <% if (user.cart.length === 0) { %>
+  <p class="empty-cart-message">Your cart is empty.</p>
+  <% } else { %>
+  <div class="cart-items">
+    <ul class="cart-list">
+      <% user.cart.forEach(item => { %>
+      <li class="cart-item">
+        <div class="item-image">
+          <img src="<%= item.image %>" alt="<%= item.name %>" />
+        </div>
+        <div class="item-details">
+          <h2><%= item.name %></h2>
+          <p><strong>Price:</strong> $<%= item.price %></p>
+          <p><strong>Description:</strong> <%= item.desc %></p>
+          <form
+            action="/cart/delete/<%= item._id %>?_method=DELETE"
+            method="POST"
+          >
+            <button type="submit" class="delete-button">Remove</button>
+          </form>
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+  <% } %>
+</div>
 
-<ul>
-  <% user.cart.forEach(item => { %>
-  <li>
-    <strong>Name:</strong> <%= item.name %><br />
-
-    <strong>Price:</strong> $<%= item.price %><br />
-    <strong>Description:</strong> <%= item.desc %><br />
-    <strong>Image:</strong>
-    <img src="<%= item.image %>" alt="<%= item.name %>" /><br />
-  </li>
-  <% }) %>
-</ul>
-
-<%- include('../../partials/footer') %>
+<%- include('../../partials/footer') %> ]

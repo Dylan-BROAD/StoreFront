@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const cartCtrl = require("../controllers/cart");
+const ensureLoggedIn = require("../config/ensureLoggedIn");
 
-router.get("/cart", cartCtrl.cart);
-router.post("/clothes/addToCart", cartCtrl.addItem);
-router.delete("/cart/delete/:id", cartCtrl.deleteItem);
-router.put("/cart/edit/:id", cartCtrl.editItem);
+router.get("/cart", ensureLoggedIn, cartCtrl.cart);
+router.post("/clothes/addToCart", ensureLoggedIn, cartCtrl.addItem);
+router.delete("/cart/delete/:id", ensureLoggedIn, cartCtrl.deleteItem);
+router.put("/cart/edit/:id", ensureLoggedIn, cartCtrl.editItem);
 
 module.exports = router;
