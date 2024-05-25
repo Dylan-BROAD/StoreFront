@@ -3,9 +3,13 @@
 <div class="cart-container">
   <div class="cart-header">
     <h1 class="cart-title">
-      <img src="<%= user.avatar %>" alt="<%= user.avatar %>" /><%= user.name
-      %>'s Cart
+      <img
+        src="<%= user.avatar %>"
+        alt="<%= user.avatar %>"
+        style="border-radius: 50%"
+      /><%= user.name %>'s Cart
     </h1>
+
     <% if (user.cart.length > 0) { %>
     <a href="/checkout" class="checkout-button">Proceed to Checkout</a>
     <% } %>
